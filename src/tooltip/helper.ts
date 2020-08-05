@@ -1,11 +1,11 @@
-export const bypassBorders = bounds => {
-  if (bounds.top <= bounds.height + 10) {
+export const bypassBorders = (top: number, height: number) => {
+  if (top <= height + 10) {
     return {
-      top: bounds.top + bounds.height
+      top: top + height
     };
   } else {
     return {
-      top: bounds.top - bounds.height
+      top: top - height
     };
   }
 };

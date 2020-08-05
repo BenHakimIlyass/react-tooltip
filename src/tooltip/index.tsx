@@ -1,22 +1,18 @@
 import React from "react";
 import useMeasure from "react-use-measure";
 import { animated } from "react-spring";
-import * as CSS from "csstype";
 
-import { useTooltip, Hover } from "./useTooltip";
+import { useTooltip } from "./useTooltip";
 import { bypassBorders } from "./helper";
 
 type Props = {
   children: JSX.Element | JSX.Element[];
   Component: any;
 };
-type Hook = {
-  hover: Hover;
-  transitions: CSS.Properties;
-};
+
 const Tooltip = ({ children, Component }: Props) => {
   const [hover, transitions] = useTooltip();
-  const [ref, bounds] = useMeasure();
+  const [ref, { top, height }] = useMeasure();
 
   return (
     <div>
@@ -27,7 +23,7 @@ const Tooltip = ({ children, Component }: Props) => {
               style={{
                 position: "absolute",
                 ...props,
-                ...bypassBorders(bounds)
+                ...bypassBorders(top, height)
               }}
               key={key}
             >
@@ -35,7 +31,7 @@ const Tooltip = ({ children, Component }: Props) => {
             </animated.div>
           )
       )}
-      <div {...hover} ref={ref}>
+      <div {...hover} style={{ position: "relative" }} ref={ref}>
         {children}
       </div>
     </div>

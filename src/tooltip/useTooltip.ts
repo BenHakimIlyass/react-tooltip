@@ -5,9 +5,7 @@ export type Hover = {
   onMouseEnter: () => void;
   onMouseLeave: () => void;
 };
-type Tooltip = {
-  dist: [];
-};
+
 export const useTooltip = (): [Hover, any] => {
   const [state, set] = React.useState(false);
   const transitions = useTransition(state, null, {

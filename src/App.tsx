@@ -7,9 +7,13 @@ import Tooltip from "./tooltip";
 export default function App() {
   return (
     <Wrapper>
-      <div style={{ marginLeft: 300 }}>
-        <Tooltip title="Im a tooltip" Component={() => <Infos>lol</Infos>}>
-          <Icon style={{ marginTop: 10 }} />
+      <Tooltip Component={() => <Infos>lol</Infos>}>
+        <Icon />
+      </Tooltip>
+
+      <div style={{ marginTop: 150 }}>
+        <Tooltip Component={() => <Infos>lol</Infos>}>
+          <Icon />
         </Tooltip>
       </div>
     </Wrapper>
