@@ -7,13 +7,11 @@ import { bypassBorders } from "./helper";
 
 type Props = {
   children: JSX.Element | JSX.Element[];
-  Component: any;
+  render: any;
 };
-
-const Tooltip = ({ children, Component }: Props) => {
+const Tooltip = ({ children, render }: Props) => {
   const [hover, transitions] = useTooltip();
   const [ref, { top, height }] = useMeasure();
-
   return (
     <div>
       {transitions.map(
@@ -27,7 +25,7 @@ const Tooltip = ({ children, Component }: Props) => {
               }}
               key={key}
             >
-              <Component />
+              {render()}
             </animated.div>
           )
       )}

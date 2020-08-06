@@ -7,12 +7,12 @@ import Tooltip from "./tooltip";
 export default function App() {
   return (
     <Wrapper>
-      <Tooltip Component={() => <Infos>Im a tooltip1</Infos>}>
+      <Tooltip render={() => <Infos>Call me tooltip</Infos>}>
         <Icon />
       </Tooltip>
 
       <div style={{ marginTop: 150 }}>
-        <Tooltip Component={() => <Infos>Im a tooltip2</Infos>}>
+        <Tooltip render={() => <Infos>Or call me popper</Infos>}>
           <Icon />
         </Tooltip>
       </div>
